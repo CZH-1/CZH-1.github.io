@@ -10259,6 +10259,27 @@ body {
   display: flex;
   flex-direction: column;
 }
+body:before {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  transition: opacity 1s;
+  background: url("https://api.btstu.cn/sjbz/?lx=dongman&format=images&method=pc") center 0 no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: screen-tablet -1) {
+  body:before {
+    background-image: url("https://api.btstu.cn/sjbz/?lx=dongman&format=images&method=mobile");
+  }
+}
+body.ready:before {
+  opacity: 1;
+}
 body > .section {
   flex-grow: 1;
 }
@@ -10747,6 +10768,23 @@ body > .section {
 .image .avatar {
   height: 100%;
   object-fit: cover;
+  border-radius: 100%;
+  padding: 2px;
+  animation: cycle 2s 0.5s forwards;
+  transition: border-radius 2s;
+  -webkit-animation: play 2s ease-out 1s 1;
+  -moz-animation: play 2s ease-out 1s 1;
+  animation: play 2s ease-out 1s 1;
+/* 鼠标经过头像旋转360度 */
+  -webkit-transition: -webkit-transform 1.5s ease-out;
+  -moz-transition: -moz-transform 1.5s ease-out;
+  transition: transform 1.5s ease-out;
+}
+.image .avatar:hover {
+/* 鼠标经过头像旋转360度 */
+  -webkit-transform: rotateZ(360deg);
+  -moz-transform: rotateZ(360deg);
+  transform: rotateZ(360deg);
 }
 .image .fill {
   object-fit: cover;
@@ -10853,10 +10891,6 @@ article.article .content .message.message-immersive {
 }
 article.article .content .message.message-immersive .message-body {
   border: none;
-}
-article.article .article-tags {
-  display: flex;
-  flex-wrap: wrap;
 }
 .rtl {
   direction: rtl;
@@ -11367,39 +11401,6 @@ figure.highlight .section {
 .level.is-multiline {
   flex-wrap: wrap;
 }
-@media screen and (max-width: 768px) {
-  .widget.card#toc {
-    display: none;
-    position: fixed;
-    margin: 1rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-  }
-  .widget.card#toc .card-content {
-    padding: 0;
-  }
-  .widget.card#toc .menu {
-    padding: 1.5rem;
-    max-height: calc(100vh - 2rem);
-    overflow-y: auto;
-  }
-  #toc-mask {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99;
-    background: rgba(0,0,0,0.7);
-  }
-  .widget.card#toc.is-active,
-  #toc-mask.is-active {
-    display: block;
-  }
-}
 .donate {
   position: relative;
 }
@@ -11530,6 +11531,33 @@ figure.highlight .section {
 }
 .gallery-item .caption {
   color: #7a7a7a;
+}
+@media screen and (max-width: 768px) {
+  #toc {
+    display: none;
+    position: fixed;
+    margin: 1rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+  #toc-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.7);
+  }
+  #toc.is-active,
+  #toc-mask.is-active {
+    display: block;
+  }
 }
 .pace {
   user-select: none;
