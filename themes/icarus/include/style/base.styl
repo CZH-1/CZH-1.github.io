@@ -76,6 +76,22 @@ body
     min-height: 100%
     display: flex
     flex-direction: column
+body:before
+    content: ''
+    position: fixed
+    z-index: -1
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: 0.5
+    transition: opacity 1s
+    background: url("https://api.btstu.cn/sjbz/?lx=dongman&format=images&method=pc") center 0 no-repeat
+    background-size: cover
+    @media screen and (max-width: screen-tablet - 1)
+        background-image: url("https://api.btstu.cn/sjbz/?lx=dongman&format=images&method=mobile")
+body.ready:before
+    opacity: 1
 
 body > .section
     flex-grow: 1

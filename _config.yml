@@ -60,6 +60,32 @@ include: null
 exclude: null
 ignore: null
 theme: icarus
+valine: 
+    enable: false
+    app_id: TeTR7P6MiqeOgTPdmHbWjL1e-gzGzoHsz
+    app_key: waf2Qu3JCSG1b2jwuI0TVBDf
+    placeholder: ""                 # 可选填
+    avatar: robohash                # 可选填
+    avatar_force: false             # 可选填
+    meta: ["nick", "mail", "link"]  # 可选填
+    page_size: 10                   # 可选填
+    lang: zh-CN                     # 可选填
+    visitor: false                  # 可选填
+    highlight: true                 # 可选填
+    record_ip: false                # 可选填
+    server_urls:                    # 可选填
+    emoji_cdn:                      # 可选填
+    emoji_maps:                     # 可选填
+    enable_qq: false                # 可选填
+    required_fields: []             # 可选填
+leancloud_visitors:
+    enable: true
+    app_id: TeTR7P6MiqeOgTPdmHbWjL1e-gzGzoHsz
+    app_key: waf2Qu3JCSG1b2jwuI0TVBDf
+leancloud_counter:
+    enable: true
+    app_id: TeTR7P6MiqeOgTPdmHbWjL1e-gzGzoHsz
+    app_key: waf2Qu3JCSG1b2jwuI0TVBDf
 deploy:
   type: git
   repo: https://github.com/CZH-1/CZH-1.github.io

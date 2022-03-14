@@ -159,6 +159,19 @@ for n in (0 .. 5)
         padding: 2px;
         animation: cycle 2s 0.5s forwards;
         transition: border-radius 2s;
+        -webkit-animation: play 2s ease-out 1s 1;
+        -moz-animation: play 2s ease-out 1s 1;
+        animation: play 2s ease-out 1s 1; 
+
+        /* 鼠标经过头像旋转360度 */
+        -webkit-transition: -webkit-transform 1.5s ease-out;
+        -moz-transition: -moz-transform 1.5s ease-out;
+        transition: transform 1.5s ease-out;
+    .avatar:hover 
+        /* 鼠标经过头像旋转360度 */
+        -webkit-transform: rotateZ(360deg);
+        -moz-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
 
     .fill
         object-fit: cover

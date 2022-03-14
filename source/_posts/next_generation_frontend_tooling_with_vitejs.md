@@ -9,8 +9,8 @@ tags:
 - Vite
 - GitHub
 toc: true # 是否显示目录
-thumbnail: '/img/avator.png' # 缩略图
-cover: '/img/avator.png' # 头图
+thumbnail: 'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf5d21b97fb34d1b8651b9c60edda5fd~tplv-k3u1fbpfcp-watermark.image' # 缩略图
+cover: '/img/avatar.jpg' # 头图
 ---
 
 > * 原视频地址：[Next generation frontend tooling with ViteJS ✨ Open Source Friday ✨](https://www.youtube.com/watch?v=UJypSr8IhKY)
