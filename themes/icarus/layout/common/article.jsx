@@ -77,6 +77,9 @@ module.exports = class extends Component {
                             {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" dangerouslySetInnerHTML={{
                                 __html: _p('plugin.visit_count', '<span id="busuanzi_value_page_pv">0</span>')
                             }}></span> : null}
+                            {/* {!index && plugins && plugins.busuanzi === true ? <span class="level-item" id="busuanzi_container_page_pv" >
+                                共 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner"></i></span> 次阅读
+                            </span> : null} */}
                         </div>
                     </div> : null}
                     {/* Title */}

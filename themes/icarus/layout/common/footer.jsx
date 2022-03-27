@@ -55,6 +55,10 @@ class Footer extends Component {
                         </div> : null}
                     </div>
                 </div>
+                <div class="BbeiAn-info" style="text-align: center;">
+                    <a target="_blank" href="http://www.miitbeian.gov.cn/"  rel="nofollow">赣ICP备- 2022002476号-1</a> 
+                    {/* <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=2022002476" style="color:#02d7f2;text-decoration:none;padding-left:30px;background:url(https://s1.ax1x.com/2018/09/29/ilmwIH.png) no-repeat left center" rel="nofollow">赣公网安备 2022002476号-1'</a> */}
+                </div>
             </div>
         </footer>;
     }
