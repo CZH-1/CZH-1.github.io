@@ -293,6 +293,14 @@ comments: false
 
 ![](http://blog.czhhx.cn/gitcan.png)
 
+> 此处的 <span style="color: #ff502c">Enforce HTTPS</span> 配置，选中时将强制使用HTTPS，您的站点将只通过HTTPS服务，不能使用http服务（后面图床工具中我们将只能使用http，若域名未配置SSL证书），所以会导致图片无法显示
+
+![](http://blog.czhhx.cn/githttp.png)
+
+![](http://blog.czhhx.cn/leanhttp.png)
+
+![](http://blog.czhhx.cn/leanssl.png)
+
 > CNAME 即指别名记录，也被称为规范名字。这种记录允你将多个名字映射到同一台计算机。 当需要将域名指向另一个域名，再由另一个域名提供 ip地址，就需要添加 CNAME 记录。
 
 在github中默认生成的CNAME文件，会在下次 <span style="color: #ff502c">hexo d</span> 部署之后丢失，所以，我们可以在项目的 source文件下新建CNAME文件，内容依然是自己的域名，这样每次打包，都会在 public 文件中带有CNAME文件
