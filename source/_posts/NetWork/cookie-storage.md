@@ -2,9 +2,9 @@
 title: "Cookie session localStorage sessionStorage的区别"
 date: 2022-03-12 12:22:54
 categories:
-- Other
+- 网络
 tags:
-- Other
+- 网络
 toc: true # 是否显示目录
 ---
 Cookie session localStorage sessionStorage的区别

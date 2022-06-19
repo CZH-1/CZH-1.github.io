@@ -2,16 +2,15 @@
 title: "Hexo Icarus -- 搭建赛博朋克风格个人博客"
 date: 2022-03-12 12:22:54
 categories:
-- Front-End
+# - Front-End
 - Hexo
 tags:
 - Hexo
-- GitHub
 toc: true # 是否显示目录
 ---
 <meta name="referrer" content="no-referrer"/>
 
-> 基于 [Hexo](https://hexo.io/zh-cn/) ，使用酷炫的 [Icarus 主题](https://ppoffice.github.io/hexo-theme-icarus/) 且加入众多个性化配置，打造出的个人博客，效果惊艳，让我们从零开始，搭建一个专属自己的 [赛博朋克](https://ppoffice.github.io/hexo-theme-icarus/) 风格博客吧。
+> 基于 [Hexo](https://hexo.io/zh-cn/) ，使用酷炫的 [Icarus 主题](https://ppoffice.github.io/hexo-theme-icarus/)✨ 且加入众多个性化配置，打造出的个人博客，效果惊艳，让我们从零开始，搭建一个专属自己的 [赛博朋克](https://ppoffice.github.io/hexo-theme-icarus/) 风格博客吧。
 <!-- more -->
  * 安装Node.js
  * 安装Hexo
@@ -69,7 +68,7 @@ $ hexo s
 
 ![](http://blog.czhhx.cn/hexoinit.png)
 
-## 引入Icarus主题
+## 引入**Icarus**主题
 
 引入主题也非常简单，我们查看 [Icarus 主题](https://ppoffice.github.io/hexo-theme-icarus/) 。更换主题主要有两种方式，一种是使用 npm 安装主题的方式，另一种是下载源码放到 theme 文件夹的方式。简单起见，我们先采用 npm 的方式：
 ``` bash

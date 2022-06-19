@@ -50,9 +50,17 @@ index_generator:
 default_category: uncategorized
 category_map: 
   JavaScript: JavaScript
-  Hexo: Hexo
   Vue: Vue
-  Other: other
+  React: React
+  TypeScript: TypeScript
+  HTML&CSS : Html&css
+  网络: NetWork
+  工程化: Engineering
+  性能优化: Optimizing
+  数据结构&算法: Arithmetic
+  前端安全: Safe
+  Hexo: Hexo
+  其他: Other
 tag_map: null
 meta_generator: true
 date_format: YYYY-MM-DD
