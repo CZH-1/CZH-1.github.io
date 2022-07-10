@@ -72,6 +72,8 @@ include: null
 exclude: null
 ignore: null
 theme: icarus
+encrypt: 
+  enable: true
 valine: 
     enable: true
     app_id: TeTR7P6MiqeOgTPdmHbWjL1e-gzGzoHsz

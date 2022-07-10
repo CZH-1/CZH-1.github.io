@@ -8,10 +8,10 @@ tags:
 toc: true # 是否显示目录
 ---
 > * 生命周期
-> * 了解 Vue diff算法
-> * 虚拟dom
 > * vuex
 > * vue-router 3种模式
+> * 虚拟dom
+> * 了解 Vue diff算法
 > * vue3 及 与 vue2 的区别
 
 
@@ -150,6 +150,155 @@ computed: {
 }
 ```
 
+## 虚拟DOM
+### 什么是虚拟DOM
+虚拟DOM简而言之就是，用JS去按照DOM结构来实现的树形结构对象，你也可以叫做DOM对象
+Virtual DOM是对真实DOM的抽象,本质上是树形结构JavaScript对象,这个对象就是更加轻量级的对DOM的描述.
+### 虚拟DOM的优点
+* 通过diff算法来对比dom新老节点，更新虚拟DOM，减少对真实DOM的操作开销，提高性能。
+* 跨平台 抽象了原本的渲染过程实现了跨平台，不仅仅局限于浏览器的 DOM，可以是安卓和 IOS 的原生组件，可以是近期很火热的小程序，也可以是各种GUI。以及使用Node.js（没有DOM）实现SSR(服务端渲染)。
+### 虚拟DOM对象
+```bash
+# 真实DOM
+<div id="app">
+  <p class="text">hello world!!!</p>
+</div>
 
+# 虚拟DOM
+{
+  tag: 'div',
+  props: {
+    id: 'app'
+  },
+  chidren: [
+    {
+      tag: 'p',
+      props: {
+        className: 'text'
+      },
+      chidren: [
+        'hello world!!!'
+      ]
+    }
+  ]
+}
+```
+
+### 如何转换为虚拟DOM
+ React.createElement，以及 Vue 中的 render 方法中的 createElement，另外 React 是通过 babel 将 jsx 转换为 h 函数渲染的形式，而 Vue 是使用 vue-loader 将模版转为 h 函数渲染的形式（也可以通过 babel-plugin-transform-vue-jsx 插件在 vue 中使用 jsx，本质还是转换为 h 函数渲染形式）。
+```bash
+已react为例，使用 babel 将一段 jsx 代码，转换为一段 js 代码：
+function getVDOM() {
+  return (
+    <div id="app">
+      <p className="text">hello world!!!</p>
+    </div>
+  )
+}
+function getVDOM() {
+  return h('div', {
+    id: 'app'
+  },h('p', {
+    lassName: 'text'
+  },'hello world!!!'))
+}
+
+可以看到，最终 HTML 代码会被转译成 h 函数的渲染形式。h 函数接受是三个参数，分别代表是 DOM 元素的标签名、属性、子节点，最终返回一个虚拟 DOM 的对象。
+function h(tag, props, ...children) {
+  return {
+    tag,
+    props: props || {},
+    children: children.flat()
+  }
+}
+```
+
+### 渲染虚拟DOM
+
+浏览器环境下如何渲染虚拟 DOM。
+
+```bash
+function render(vdom) {
+  // 如果是字符串或者数字，创建一个文本节点
+  if (typeof vdom === 'string' || typeof vdom === 'number') {
+    return document.createTextNode(vdom)
+  }
+  const { tag, props, children } = vdom
+  // 创建真实DOM
+  const element = document.createElement(tag)
+  // 设置属性
+  setProps(element, props)
+  // 遍历子节点，并获取创建真实DOM，插入到当前节点
+  children
+    .map(render)
+    .forEach(element.appendChild.bind(element))
+
+  // 虚拟 DOM 中缓存真实 DOM 节点
+  vdom.dom = element
+
+  // 返回 DOM 节点
+  return element
+}
+
+function setProps (element, props) {
+  Object.entries(props).forEach(([key, value]) => {
+    setProp(element, key, value)
+  })
+}
+
+function setProp (element, key, vlaue) {
+  element.setAttribute(
+    // className使用class代替
+    key === 'className' ? 'class' : key,
+    vlaue
+  )
+}
+
+```
+
+将虚拟 DOM 渲染成真实 DOM 后，只需要插入到对应的根节点即可。
+
+```bash
+const vdom = <div>hello world!!!</div> // h('div', {}, 'hello world!!!')
+const app = document.getElementById('app')
+const ele = render(vdom)
+app.appendChild(ele)
+```
+
+当然在现代化的框架中，一般会有一个组件文件专门用来构造虚拟 DOM，我们模仿 React 使用 class 的方式编写组件，然后渲染到页面中。
+```bash
+class Component {
+  vdom = null // 组件的虚拟DOM表示
+  $el  = null // 虚拟DOM生成的真实节点
+
+  state = {
+    text: 'Initialize the Component'
+  }
+
+  render() {
+    const { text } = this.state
+    return (
+      <div>{ text }</div>
+    )
+  }
+}
+
+function createElement (app, component) {
+  const vdom = component.render()
+  component.vdom = vdom
+  component.$el = render(vdom) // 将虚拟 DOM 转换为真实 DOM
+  app.appendChild(component.$el)
+}
+
+const app = document.getElementById('app')
+const component = new Component
+createElement(app, component)
+```
+## diff算法
+
+diff 算法，顾名思义，就是比对新老 VDOM 的变化，然后将变化的部分更新到视图上。对应到代码上，就是一个 diff 函数，返回一个 patches （补丁）。
 
 [参考](https://juejin.cn/post/6844903887162310669#comment)
+[虚拟DOM原理的理解](https://juejin.cn/post/6844903902429577229#heading-6)
+[虚拟DOM和DOM-diff](https://juejin.cn/post/6844903806132568072#heading-0)
+[虚拟DOM到底是什么](https://mp.weixin.qq.com/s/oAlVmZ4Hbt2VhOwFEkNEhw)
