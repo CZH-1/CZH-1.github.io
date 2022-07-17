@@ -45,3 +45,93 @@ JavaScript 是在创建变量（对象，字符串等）时自动进行了分配
 * 如果同一个值又被赋给另一个变量，那么引用数加 1
 * 如果该变量的值被其他的值覆盖了，则引用次数减 1
 * 当这个值的引用次数变为 0 的时候，说明没有变量在使用，这个值没法被访问了，回收空间，垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的内存
+
+
+## js 创建对象的方式
+
+一. 使用 {} 字面量创建
+```bash
+# 等同于 new Object()
+let obj = {
+  name: '张三',
+  sayHi: function () {
+    console.log('hi~');
+  }
+}
+
+```
+
+二. 使用 new Object()
+```bash
+let obj = new Object()
+obj.name = '张三'
+obj.sayHi = function () {
+  console.log('hi~' + o.name);
+}
+```
+
+三. 使用工厂模式
+```bash
+function createObject(name){
+  let o = new Object{}
+  o.name = name
+  o.sayHi = function () {
+    console.log('hi~' + o.name);
+  }
+  return o
+}
+let obj = createObject('张三')
+```
+
+四. 使用构造函数
+
+所谓构造函数，也是普通的函数，不过约定俗成，构造函数的名称首字母大写，普通函数的首字母小写。通过new 构造函数来创建对象。
+```bash
+function CreateObject(name){
+  this.name = name 
+  this.sayHi = function () {
+    console.log('hi~' + o.name);
+  }
+}
+let obj = new CreateObject('张三')
+```
+
+五. 使用原型模式
+
+```bash
+function CreateObject() { }
+# createObject.prototype.name = '张三';
+# createObject.prototype.sayHi = function () { 
+# console.log('hi~' + o.name);
+# };
+
+# 优化
+CreateObject.prototype = {
+    constructor: CreateObject,
+    name: '张三',
+    sayHi: function () {
+      console.log('hi~' + o.name);
+    }
+};
+
+var a1 = new CreateObject();
+
+a1.sayHi();
+```
+六. 组合模式
+
+构造函数模式与原型模式双剑合璧。
+```bash
+function CreateObject(name) {
+    this.name = name;
+}
+
+CreateObject.prototype = {
+    constructor: CreateObject,
+    sayHi: function () {
+    console.log('hi~' + this.name);
+    }
+};
+
+var person1 = new CreateObject('张三');
+```
