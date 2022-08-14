@@ -266,6 +266,8 @@ comments: false
 ### 加密插件
 参考文章
 [对 Hexo 博客文章进行加密](https://zhuanlan.zhihu.com/p/113235573)
+> ⚠️注意：部署后需使用https协议，问题参考 [密码之后没反应 console报错如下](https://github.com/D0n9X1n/hexo-blog-encrypt/issues/114)
+
 
 其他个性化设置（统计，分享等），大家可以评论分享，共同探讨。
 ## 绑定个人域名

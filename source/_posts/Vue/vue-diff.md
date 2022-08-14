@@ -299,6 +299,9 @@ createElement(app, component)
 diff 算法，顾名思义，就是比对新老 VDOM 的变化，然后将变化的部分更新到视图上。对应到代码上，就是一个 diff 函数，返回一个 patches （补丁）。
 
 [参考](https://juejin.cn/post/6844903887162310669#comment)
+
 [虚拟DOM原理的理解](https://juejin.cn/post/6844903902429577229#heading-6)
+
 [虚拟DOM和DOM-diff](https://juejin.cn/post/6844903806132568072#heading-0)
+
 [虚拟DOM到底是什么](https://mp.weixin.qq.com/s/oAlVmZ4Hbt2VhOwFEkNEhw)

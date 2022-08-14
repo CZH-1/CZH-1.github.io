@@ -129,7 +129,7 @@ toc: true # 是否显示目录
   ```
 
 ```bash
-js中的代码总是遵循先申明再执行的准则，那么在申明的时候var function是申明在全局对象上的，而let const是登录在全局scope上的。var声明放入变量会提升并初始化为undefined,但是let const 也会提升(此处还需仔细探讨![let到底会不会造成变量提升](https://blog.csdn.net/amyleeYMY/article/details/122555195))，只是不会初始化，所以会报错。查找变量的时候总是从全局scope到全局对象上面查找
+js中的代码总是遵循先申明再执行的准则，那么在申明的时候var function是申明在全局对象上的，而let const是登录在全局scope上的。var声明放入变量会提升并初始化为undefined,但是let const 也会提升(此处还需仔细探讨[let到底会不会造成变量提升](https://blog.csdn.net/amyleeYMY/article/details/122555195))，只是不会初始化，所以会报错。查找变量的时候总是从全局scope到全局对象上面查找
 
 var a = 10
 function  foo() {

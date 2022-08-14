@@ -2,9 +2,9 @@
 title: "常见知识点汇总"
 date: 2022-03-12 12:22:54
 categories:
-- Other
+- 其他
 tags:
-- Other
+- 其他
 password: 123
 message: 请输入密码查看详细内容
 toc: true # 是否显示目录

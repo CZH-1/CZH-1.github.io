@@ -2,9 +2,9 @@
 title: "基于 vue + electron 编写一个桌面应用"
 date: 2022-06-12 12:53:54
 categories:
-- Other
+- 其他
 tags:
-- Other
+- 其他
 toc: true # 是否显示目录
 ---
 基于 <strong> <span style="color: #ff502c">vue-cli3.0 </strong> + <strong> <span style="color: #ff502c">Electron </strong> 编写一个桌面应用
