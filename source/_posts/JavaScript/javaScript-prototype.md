@@ -13,6 +13,6 @@ toc: true # 是否显示目录
 <!-- more -->
 ## 参考
 * [深入理解 JavaScript 原型](https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg)
-* [从__proto__和prototype来深入理解JS对象和原型链 ]()
+* [「历时8个月」10万字前端知识体系总结（基础知识篇）🔥](https://juejin.cn/post/7146973901166215176)
 
 
