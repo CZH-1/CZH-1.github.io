@@ -27,7 +27,8 @@ function Dog(name) {
 let obj = new Dog("ming");
 console.log(obj); // {test:1} 
 ```
-手写new:
+手写 new:
+
 ```bash
 function selfNew(fn, ...args) {
   // 创建一个instance对象，该对象的原型是fn.prototype
