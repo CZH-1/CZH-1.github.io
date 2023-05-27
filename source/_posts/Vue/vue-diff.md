@@ -12,6 +12,7 @@ toc: true # 是否显示目录
 > * vue-router 3种模式
 > * 虚拟dom
 > * 了解 Vue diff算法
+> * vue 底层代码
 > * vue3 及 与 vue2 的区别
 
 
@@ -29,13 +30,6 @@ vue 的生命周期钩子核心实现是利用发布订阅模式，先把用户�
 * beforeDestroy: 发生在实例销毁之前，在当前阶段实例完全可以被使用，我们可以在这时进行善后收尾工作，比如清除计时器。
 * destroyed:  发生在实例销毁之后，这个时候只剩下了 dom 空壳。组件已被拆解，数据绑定被卸除，监听被移出，子实例也统统被销毁。
 
-## vue-router 有几种模式
-vue-router 有 3 种路由模式：hash、history、abstract：
-
-* hash: 使用 URL hash 值来作路由。支持所有浏览器，包括不支持 HTML5 History Api 的浏览器;
-* history: 依赖 HTML5 History API 和服务器配置(常用);
-* abstract: 支持所有 JavaScript 运行环境，如 Node.js 服务器端。如果发现没有浏览器的 API，路由会自动强制进入这个模式;
-
 
 ## vuex
 
@@ -43,11 +37,12 @@ vue-router 有 3 种路由模式：hash、history、abstract：
 
 vuex中，有默认的五种基本的对象：
 
-* state：存储状态（变量）
+* state：定义了应用状态的数据结构，可以在这里设置默认的初始状态
 * getters：对数据获取之前的再次编译，可以理解为state的计算属性。
 * mutations：修改状态，并且是同步的。这个和我们组件中的自定义事件类似。
-* actions：异步操作。
-* modules：store的子模块
+* actions：用于提交 mutation，而不是直接变更状态，可以包含任意异步操作。
+* modules：允许将单一的 Store 拆分为多个 store 且同时保存在单一的状态树中。
+* mapGetters 辅助函数
 
 项目的src文件夹如下：
 ```bash
@@ -149,6 +144,9 @@ computed: {
   ...mapGetters(['userId', 'sessionId']),
 }
 ```
+
+## 简易版vuex
+vue.js 2.6 新增了Observable API， 通过这个api，可以应对一些简单的跨组件数据共享。像是简易版vuex
 
 ## 虚拟DOM
 ### 什么是虚拟DOM
@@ -305,3 +303,49 @@ diff 算法，顾名思义，就是比对新老 VDOM 的变化，然后将变化
 [虚拟DOM和DOM-diff](https://juejin.cn/post/6844903806132568072#heading-0)
 
 [虚拟DOM到底是什么](https://mp.weixin.qq.com/s/oAlVmZ4Hbt2VhOwFEkNEhw)
+
+[diff算法详解](https://juejin.cn/post/7204844328111374391)
+
+
+## Vue底层架构 core watcher vnode diff算法
+[Vue底层架构](https://www.cnblogs.com/rubyxie/articles/10950050.html)
+
+### 数据监听
+[参考](https://juejin.cn/post/6844903918753808398#heading-18)
+
+### $set
+Vue 怎么用 vm.$set() 解决对象新增属性不能响应的问题 ？
+
+受现代 JavaScript 的限制 ，Vue 无法检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。但是 Vue 提供了 Vue.set (object, propertyName, value) / vm.$set (object, propertyName, value)  来实现为对象添加响应式属性，那框架本身是如何实现的呢？
+
+```bash
+# 源码
+export function set (target: Array<any> | Object, key: any, val: any): any {
+  // target 为数组  
+  if (Array.isArray(target) && isValidArrayIndex(key)) {
+    // 修改数组的长度, 避免索引>数组长度导致splcie()执行有误
+    target.length = Math.max(target.length, key)
+    // 利用数组的splice变异方法触发响应式  
+    target.splice(key, 1, val)
+    return val
+  }
+  // key 已经存在，直接修改属性值  
+  if (key in target && !(key in Object.prototype)) {
+    target[key] = val
+    return val
+  }
+  const ob = (target: any).__ob__
+  // target 本身就不是响应式数据, 直接赋值
+  if (!ob) {
+    target[key] = val
+    return val
+  }
+  // 对属性进行响应式处理
+  defineReactive(ob.value, key, val)
+  ob.dep.notify()
+  return val
+}
+```
+我们阅读以上源码可知，vm.$set 的实现原理是：
+* 如果目标是数组，直接使用数组的 splice 方法触发相应式；
+* 如果目标是对象，会先判读属性是否存在、对象是否是响应式，最终如果要对属性进行响应式处理，则是通过调用   defineReactive 方法进行响应式处理（ defineReactive 方法就是  Vue 在初始化对象时，给对象属性采用 Object.defineProperty 动态添加 getter 和 setter 的功能所调用的方法）
