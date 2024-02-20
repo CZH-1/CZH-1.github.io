@@ -59,6 +59,9 @@ toc: true # 是否显示目录
     # 修改nginx.conf文件
     [root@iZbp1e31bqkj6opg1bsdr0Z nginx]# cd conf
     [root@iZbp1e31bqkj6opg1bsdr0Z conf]# vim /nginx.conf
+    # 重启 nginx
+    [root@iZbp1e31bqkj6opg1bsdr0Z sbin]# ./nginx -s reload
+    
     ```
 6. 浏览器输入服务器IP(公网IP)即可看到页面
   * 若nginx启动成功，浏览器无法访问，可能是防火墙开了
@@ -78,6 +81,50 @@ toc: true # 是否显示目录
     root /usr/local/nginx/dist;
     index index.html index.html;
   }
+  
+  注意：npm run bulid 中，设置 
+  vue2： publicPath : process.env.NODE_ENV === 'production'  ? "/meal"  : "/"
+  })，生成的路径应带上文件根目录地址
+  vue3: base: './'  生成 相对路径 ./assets/ (vite配置：https://blog.csdn.net/weixin_45822171/article/details/127275984)
+  上述 /meal 生成路径 /meal/assets/ 打包之后index.html中路径如下：(若不加/meal,上传至服务器之前，无法访问)
+  <!doctype html>
+  <html lang="">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <link rel="icon" href="/meal/favicon.ico">
+  <title>today-meal</title>
+  <script defer="defer" src="/meal/js/chunk-vendors.0833686f.js"></script>
+  <script defer="defer" src="/meal/js/app.31f1556d.js"></script>
+  <link href="/meal/css/chunk-vendors.e18646e2.css" rel="stylesheet">
+  <link href="/meal/css/app.8bd79ca3.css" rel="stylesheet">
+  </head>
+  <body>
+  <noscript><strong>We're sorry but today-meal doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><
+  /body>
+  </html>
+  
+   location /meal {
+              root   /usr/local/nginx;  
+              index  index.html index.htm;
+          }
+    http://web.czhhx.cn/neck === http://web.czhhx.cn/neck/index.html
+  
+   location /neck {
+              root   /usr/local/nginx;
+              try_files $uri $uri/ /index.html;
+              index  index.html index.htm;
+          }
+  location /refresh-step/ {
+      proxy_pass  http://127.0.0.1:7001; # 转发规则
+      proxy_set_header Host $proxy_host; # 修改转发请求头，让8080端口的应用可以受到真实的请求
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+   
+    meal: /usr/local/nginx/meal
+    refresh-steps: /server/refresh-steps
   ```
 10. 重启nginx [root@iZbp1e31bqkj6opg1bsdr0Z sbin]# ./nginx -s reload
 

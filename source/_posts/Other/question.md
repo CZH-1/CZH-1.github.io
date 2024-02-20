@@ -13,7 +13,7 @@ toc: true # 是否显示目录
 
 <!-- more -->
 
-## js 创建对象的方式
+## 1. js 创建对象的方式
 
 一. 使用 {} 字面量创建
 ```bash
@@ -101,3 +101,19 @@ CreateObject.prototype = {
 
 var person1 = new CreateObject('张三');
 ```
+
+
+## 2. React 和 Vue 的区别
+
+相同点：
+  * 数据驱动
+  * 虚拟 DOM
+  * 组件化
+  
+不同点：
+  * JSX 与模板语法
+    * Vue：默认使用基于 HTML 的模板语法，将模板、样式及逻辑划分开来使关注点分离。也可以选配 JSX 支持。
+    * React：默认使用 JSX 编写组件，将 HTML 和 CSS 组合到 JavaScript 中。在选用 TypeScript 作为开发语言时，可以更方便的整合相关工具链。
+  * 数据响应模型
+    * Vue 是推模型，当数据改动时，界面会自动更新。Vue 通过 defineProperty 监听数据的改动，可以做到在数据改变时，精准细粒度的更新对应的视图。
+    * React 是拉模型，当数据改动时，需要手动调用 setState 更新界面。React 倾向于函数式编程，view = f(state)，鼓励使用不可变数据，当 state 发生改变时，react 默认会使用浅比较来对比状态的差异，更具对比结果决定是否更新视图。
