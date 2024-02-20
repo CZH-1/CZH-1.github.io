@@ -1170,7 +1170,7 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
-bulma-stylus@0.8.0:
+bulma-stylus@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/bulma-stylus/-/bulma-stylus-0.8.0.tgz#137c182a1fdf9ac82f2e73bd3163aac454b105ae"
   integrity sha512-9Q9BMPeHFyJ5EWh/tJPCcLDYEovKzUBOyMHsKEIyxSYEKG8wqt9RVuTumaJ2AfDjyHC9OifWKOfJSweKYD5IMQ==
@@ -1837,6 +1837,13 @@ hexo-log@^2.0.0:
   integrity sha512-U7zdDae74pXcyhQEyNmpJdq3UI6zWKxQ7/zLoMr/d3CBRdIfB5yO8DWqKUnewfibYv0gODyTWUIhxQDWuwloow==
   dependencies:
     chalk "^4.0.0"
+
+hexo-log@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/hexo-log/-/hexo-log-4.1.0.tgz#54b42c250335067b5c60b4137f501607454efda0"
+  integrity sha512-i2Sgxk8Cgx5viSjq5qW5N/rBFfwoCKQcH8qnnW1fawCapcdEAhIsq+Y3vbrs9bssyDlyU6Vqm4oQmosREaNI7Q==
+  dependencies:
+    picocolors "^1.0.0"
 
 hexo-pagination@1.0.0, hexo-pagination@^1.0.0:
   version "1.0.0"
