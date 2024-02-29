@@ -30,7 +30,11 @@ Cookie session localStorage sessionStorage的区别
 ## 三、localStorage
   * html5提供的一个API而已
   * 永久有效，除非用户主动清除缓存
-  * 设置缓存：localStorage.setItem('key', 'value');// 获取缓存：localStorage.getItem('key');// 清除缓存：localStorage.removeItem('key')// 删除所有保存的数据localStorage.clear();
+  * 设置缓存：localStorage.setItem('key', 'value');
+  * 获取缓存：localStorage.getItem('key'); 
+  * 清除缓存：localStorage.removeItem('key'); 
+  * 删除所有保存的数据：localStorage.clear();
+  * 只能存入字符串，无法直接存对象
 
 ## 四、sessionStorage
   * sessionStorage用户关闭页面就失效
@@ -42,6 +46,6 @@ Cookie session localStorage sessionStorage的区别
   4. cookie能被篡改，session更安全。
 
 ## 试题2: Cookie 和 LocalStorage SessionStorage 的区别
-  1. cookie数据大小不能超过4k；sessionStorage和localStorage的存储比cookie大得多，可以达到5M+
-  2. cookie设置的过期时间之前一直有效；localStorage永久存储，浏览器关闭后数据不丢失除非主动删除数据；sessionStorage数据在当前浏览器窗口关闭后自动删除
-  3. cookie的数据会自动的传递到服务器；sessionStorage和localStorage数据保存在本地
+  1. 存储大小：cookie数据大小不能超过4k；sessionStorage和localStorage的存储比cookie大得多，可以达到5M+
+  2. 有效时间：cookie设置的过期时间之前一直有效；localStorage永久存储，浏览器关闭后数据不丢失除非主动删除数据；sessionStorage数据在当前浏览器窗口关闭后自动删除
+  3. 数据与服务器交互方式：cookie的数据会自动的传递到服务器；sessionStorage和localStorage数据保存在本地

@@ -13,9 +13,13 @@ toc: true # 是否显示目录
 <!-- more -->
 
 三者的区别:
+
 1）三者都可以显式绑定函数的this指向
+
 2）三者第一个参数都是this要指向的对象，若该参数为undefined或null，this则默认指向全局window
+
 3）传参不同：apply是数组、call是参数列表，而bind可以分为多次传入，实现参数的合并
+
 4）call、apply是立即执行，bind是返回绑定this之后的函数，如果这个新的函数作为构造函数被调用，那么this不再指向传入给bind的第一个参数，而是指向新生成的对象
 
 手写call:
@@ -80,6 +84,7 @@ Function.prototype.Bind = function(context, ...args) {
 ```
 
 ## 参考
-* [深入理解 JavaScript 原型](https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg))
+* [深入理解 JavaScript 原型](https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg)
+* [实现 apply、call、bind](https://www.developers.pub/wiki/1070320/1071013)
 
 

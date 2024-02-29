@@ -40,6 +40,7 @@ function ab(){
 }
 console.log(ab())
 ```
-
+## 参考
 https://juejin.cn/post/7204707115062411320#heading-9
-https://juejin.cn/post/7146973901166215176#heading-8
+https://juejin.cn/post/7146973901166215176#heading-8   
+[谈谈this的理解](https://www.developers.pub/wiki/1065322/1067539)

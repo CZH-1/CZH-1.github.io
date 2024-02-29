@@ -47,6 +47,9 @@ toc: true # 是否显示目录
 
 ## 其他
 * 尽量使用图标，不用图片
+  
+## 首屏性能优化
+[首屏加载速度优化](https://www.developers.pub/wiki/1065322/1065368)
 
 ## 参考
 [Vue性能优化](https://juejin.cn/post/6844903918753808398#heading-18)
