@@ -17,18 +17,18 @@ Cookie session localStorage sessionStorage的区别
 * Cookie会被用户篡改
 * 临时Cookie（会话Cookie） 永久Cookie
 
-  不设置过期时间，则表示这个cookie生命周期为浏览器会话期间，只要关闭浏览器窗口，cookie就消失了。
-  这种生命期为浏览会话期的cookie被称为会话cookie。会话cookie一般不保存在硬盘上而是保存在内存里。
+不设置过期时间，则表示这个cookie生命周期为浏览器会话期间，只要关闭浏览器窗口，cookie就消失了。
+这种生命期为浏览会话期的cookie被称为会话cookie。会话cookie一般不保存在硬盘上而是保存在内存里。
 
-  设置了过期时间，浏览器就会把cookie保存到硬盘上，
-  关闭后再次打开浏览器，这些cookie依然有效直到超过设定的过期时间。
+设置了过期时间，浏览器就会把cookie保存到硬盘上，
+关闭后再次打开浏览器，这些cookie依然有效直到超过设定的过期时间。
 
 ## 二、session
   * 服务器通过cookie给用户一个sessionID，sessionID对应服务器中的一小块内存。
   * 每次用户访问服务器的时候，服务器通过sessionID 读取对应的session，然后获取用户的隐私信息。
 
 ## 三、localStorage
-  * html5提供的一个API而已
+  * html5提供的一个API
   * 永久有效，除非用户主动清除缓存
   * 设置缓存：localStorage.setItem('key', 'value');
   * 获取缓存：localStorage.getItem('key'); 
