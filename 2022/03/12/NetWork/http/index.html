@@ -1,13 +1,26 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>了解 HTTP HTTPS - 浮尘的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="浮尘的博客"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="浮尘的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解 HTTP HTTPS"><meta property="og:type" content="blog"><meta property="og:title" content="了解 HTTP HTTPS"><meta property="og:url" content="https://czh-1.github.io/2022/03/12/NetWork/http/"><meta property="og:site_name" content="浮尘的博客"><meta property="og:description" content="了解 HTTP HTTPS"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://czh-1.github.io/img/og_image.png"><meta property="article:published_time" content="2022-03-12T04:22:54.000Z"><meta property="article:modified_time" content="2023-03-27T12:54:01.134Z"><meta property="article:author" content="浮尘"><meta property="article:tag" content="网络"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://czh-1.github.io/2022/03/12/NetWork/http/"},"headline":"了解 HTTP HTTPS","image":["https://czh-1.github.io/img/og_image.png"],"datePublished":"2022-03-12T04:22:54.000Z","dateModified":"2023-03-27T12:54:01.134Z","author":{"@type":"Person","name":"浮尘"},"description":"了解 HTTP HTTPS"}</script><link rel="canonical" href="https://czh-1.github.io/2022/03/12/NetWork/http/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="浮尘的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/CZH-1"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-03-12T04:22:54.000Z" title="2022/3/12 下午12:22:54">2022-03-12</time>发表</span><span class="level-item"><time dateTime="2023-03-27T12:54:01.134Z" title="2023/3/27 下午8:54:01">2023-03-27</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/NetWork/">网络</a></span><span class="level-item">10 分钟读完 (大约1473个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">了解 HTTP HTTPS</h1><div class="content"><p>了解 HTTP HTTPS</p>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>了解 HTTP HTTPS - 浮尘的博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="浮尘的博客"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="浮尘的博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解 HTTP HTTPS"><meta property="og:type" content="blog"><meta property="og:title" content="了解 HTTP HTTPS"><meta property="og:url" content="https://czh-1.github.io/2022/03/12/NetWork/http/"><meta property="og:site_name" content="浮尘的博客"><meta property="og:description" content="了解 HTTP HTTPS"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://czh-1.github.io/img/og_image.png"><meta property="article:published_time" content="2022-03-12T04:22:54.000Z"><meta property="article:modified_time" content="2024-03-20T07:21:20.931Z"><meta property="article:author" content="浮尘"><meta property="article:tag" content="网络"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://czh-1.github.io/2022/03/12/NetWork/http/"},"headline":"了解 HTTP HTTPS","image":["https://czh-1.github.io/img/og_image.png"],"datePublished":"2022-03-12T04:22:54.000Z","dateModified":"2024-03-20T07:21:20.931Z","author":{"@type":"Person","name":"浮尘"},"description":"了解 HTTP HTTPS"}</script><link rel="canonical" href="https://czh-1.github.io/2022/03/12/NetWork/http/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.2"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="浮尘的博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">文章</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/CZH-1"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-03-12T04:22:54.000Z" title="2022/3/12 下午12:22:54">2022-03-12</time>发表</span><span class="level-item"><time dateTime="2024-03-20T07:21:20.931Z" title="2024/3/20 下午3:21:20">2024-03-20</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/NetWork/">网络</a></span><span class="level-item">23 分钟读完 (大约3500个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">了解 HTTP HTTPS</h1><div class="content"><p>了解 HTTP HTTPS</p>
 <span id="more"></span>
-
+<h2 id="HTTP1-0-x2F-HTTP1-1-x2F-HTTP2-0"><a href="#HTTP1-0-x2F-HTTP1-1-x2F-HTTP2-0" class="headerlink" title="HTTP1.0&#x2F;HTTP1.1&#x2F;HTTP2.0"></a>HTTP1.0&#x2F;HTTP1.1&#x2F;HTTP2.0</h2><h3 id="HTTP1-0"><a href="#HTTP1-0" class="headerlink" title="HTTP1.0"></a>HTTP1.0</h3><ul>
+<li>浏览器与服务器只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接</li>
+</ul>
+<h3 id="HTTP1-1"><a href="#HTTP1-1" class="headerlink" title="HTTP1.1"></a>HTTP1.1</h3><ul>
+<li>引入了持久连接，即TCP连接默认不关闭，可以被多个请求复用</li>
+<li>在同一个TCP连接里面，客户端可以同时发送多个请求</li>
+<li>虽然允许复用TCP连接，但是同一个TCP连接里面，所有的数据通信是按次序进行的，服务器只有处理完一个请求，才会接着处理下一个请求。如果前面的处理特别慢，后面就会有许多请求排队等着</li>
+<li>新增了一些请求方法</li>
+<li>新增了一些请求头和响应头<h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3></li>
+<li>采用二进制格式而非文本格式</li>
+<li>完全多路复用，而非有序并阻塞的、只需一个连接即可实现并行</li>
+<li>使用报头压缩，降低开销</li>
+<li>服务器推送</li>
+</ul>
 <h2 id="»-HTTP和HTTPS"><a href="#»-HTTP和HTTPS" class="headerlink" title="» HTTP和HTTPS"></a>» HTTP和HTTPS</h2><ul>
 <li>http: 是一个客户端和服务器端请求和应答的标准（TCP），用于从 WWW 服务器传输超文本到本地浏览器的超文本传输协议。</li>
 <li>https:是以安全为目标的 HTTP 通道，即 HTTP 下 加入 SSL 层进行加密。其作用是：建立一个信息安全通道，来确保数据的传输，确保网站的真实性。</li>
 </ul>
 <h3 id="HTTP-和-HTTPS-的区别"><a href="#HTTP-和-HTTPS-的区别" class="headerlink" title="HTTP 和 HTTPS 的区别"></a>HTTP 和 HTTPS 的区别</h3><ol>
-<li>http 是超文本传输协议，信息是明文传输，HTTPS 协议要比 http 协议安全，https 是具有安全性的 ssl 加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性(当然这种安全性并非绝对的，对于更深入的 Web 安全问题，此处暂且不表)。</li>
+<li>http 是超文本传输协议，信息是明文传输，HTTPS 协议要比 http 协议安全，https 是具有安全性的 <code>ssl</code> 加密传输协议，可防止数据在传输过程中被窃取、改变，确保数据的完整性(当然这种安全性并非绝对的，对于更深入的 Web 安全问题，此处暂且不表)。</li>
 <li>http 协议的默认端口为 80，https 的默认端口为 443。</li>
 <li>http 的连接很简单，是无状态的。https 握手阶段比较费时，会使页面加载时间延长 50%，增加 10%~20%的耗电。</li>
 <li>https 缓存不如 http 高效，会增加数据开销。</li>
@@ -37,44 +50,82 @@
 </li>
 </ol>
 <h2 id="»-从输入URL到页面加载的全过程"><a href="#»-从输入URL到页面加载的全过程" class="headerlink" title="» 从输入URL到页面加载的全过程"></a>» 从输入URL到页面加载的全过程</h2><ol>
-<li><p>查找缓存</p>
-<ul>
-<li><p>浏览器缓存(强缓存和协商缓存)</p>
-</li>
-<li><p>系统缓存</p>
-</li>
-<li><p>路由缓存</p>
+<li>URL解析，查找缓存<ul>
+<li>浏览器首先对 URL 解析，解析出协议、域名、端口、资源路径、参数</li>
+<li>浏览器为了提升性能，在 URL 解析之后，实际会先查询是否有缓存，如果缓存命中，则直接返回缓存资源<ul>
+<li>浏览器缓存(强缓存和协商缓存)</li>
+<li>系统缓存</li>
+<li>路由缓存</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>DNS域名解析 浏览器向DNS服务器发送请求，根据域名解析ip地址，DNS服务器基于UDP，因此会用到 UDP协议</p>
-</li>
-<li><p>建立TCP连接 三次握手</p>
-</li>
-<li><p>发起HTTP请求</p>
-</li>
-<li><p>服务器响应并返回结果 服务器发送相应的html文件给浏览器</p>
-</li>
-<li><p>关闭TCP连接 四次挥手</p>
-</li>
-<li><p>浏览器渲染 解析html文件内容并渲染</p>
-<ul>
-<li><p>构建DOM树</p>
-</li>
-<li><p>构建CSS规则树</p>
-</li>
-<li><p>构建render树</p>
-</li>
-<li><p>布局</p>
-</li>
-<li><p>绘制</p>
-</li>
+<li>DNS域名解析 浏览器向DNS服务器发送请求，根据域名解析ip地址，DNS服务器基于UDP，因此会用到 <code>UDP协议</code></li>
+<li>建立TCP连接 三次握手</li>
+<li>发起HTTP请求</li>
+<li>服务器响应并返回结果 服务器发送相应的html及其他文件给浏览器</li>
+<li>关闭TCP连接 四次挥手</li>
+<li>浏览器渲染 解析html文件内容并渲染<ul>
+<li>构建DOM树</li>
+<li>构建CSS规则树</li>
+<li>生成render树</li>
+<li>布局</li>
+<li>绘制</li>
 </ul>
 </li>
-<li><p>js引擎解析 调用JS引擎执行JS代码（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）</p>
-</li>
+<li>js引擎解析 调用JS引擎执行JS代码（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）</li>
 </ol>
-<h2 id="»-参考-☞-🔥-连八股文都不懂还指望在前端混下去么"><a href="#»-参考-☞-🔥-连八股文都不懂还指望在前端混下去么" class="headerlink" title="» 参考  ☞ : 🔥 连八股文都不懂还指望在前端混下去么"></a>» 参考  ☞ : <a target="_blank" rel="noopener" href="https://juejin.cn/post/7016593221815910408#heading-12">🔥 连八股文都不懂还指望在前端混下去么</a></h2></div><div class="article-licensing box"><div class="licensing-title"><p>了解 HTTP HTTPS</p><p><a href="https://czh-1.github.io/2022/03/12/NetWork/http/">https://czh-1.github.io/2022/03/12/NetWork/http/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>浮尘</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-03-12</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-03-27</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/03/12/Optimizing/vue-Optimizing/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Vue项目性能优化</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/03/12/JavaScript/javaScript-ES6/"><span class="level-item">概括总结 ES6 特性</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><h3 id="1xx"><a href="#1xx" class="headerlink" title="1xx"></a>1xx</h3><p>代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束，常见如下：</p>
+<ul>
+<li>100（客户端继续发送请求，这是临时响应）：这个临时响应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求完成后向客户端发送一个最终响应</li>
+<li>101：服务器根据客户端的请求切换协议，主要用于websocket或http2升级<h3 id="2xx"><a href="#2xx" class="headerlink" title="2xx"></a>2xx</h3>代表请求已成功被服务器接收、理解、并接受，常见如下：</li>
+<li>200（成功）：请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
+<li>201（已创建）：请求成功并且服务器创建了新的资源</li>
+<li>202（已创建）：服务器已经接收请求，但尚未处理</li>
+<li>203（非授权信息）：服务器已成功处理请求，但返回的信息可能来自另一来源</li>
+<li>204（无内容）：服务器成功处理请求，但没有返回任何内容</li>
+<li>205（重置内容）：服务器成功处理请求，但没有返回任何内容</li>
+<li>206（部分内容）：服务器成功处理了部分请求<h3 id="3xx"><a href="#3xx" class="headerlink" title="3xx"></a>3xx</h3>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向，常见如下：</li>
+<li>300（多种选择）：针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择</li>
+<li>301（永久移动）：请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置</li>
+<li>302（临时移动）： 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求</li>
+<li>303（查看其他位置）：请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码</li>
+<li>305 （使用代理）： 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理</li>
+<li>307 （临时重定向）： 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求<h3 id="4xx"><a href="#4xx" class="headerlink" title="4xx"></a>4xx</h3>代表了客户端看起来可能发生了错误，妨碍了服务器的处理，常见如下：</li>
+<li>400（错误请求）： 服务器不理解请求的语法</li>
+<li>401（未授权）： 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>403（禁止）： 服务器拒绝请求</li>
+<li>404（未找到）： 服务器找不到请求的网页</li>
+<li>405（方法禁用）： 禁用请求中指定的方法</li>
+<li>406（不接受）： 无法使用请求的内容特性响应请求的网页</li>
+<li>407（需要代理授权）： 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理</li>
+<li>408（请求超时）： 服务器等候请求时发生超时<h3 id="5xx"><a href="#5xx" class="headerlink" title="5xx"></a>5xx</h3></li>
+<li>表示服务器无法完成明显有效的请求。这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，常见如下：</li>
+<li>500（服务器内部错误）：服务器遇到错误，无法完成请求</li>
+<li>501（尚未实施）：服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码</li>
+<li>502（错误网关）： 服务器作为网关或代理，从上游服务器收到无效响应</li>
+<li>503（服务不可用）： 服务器目前无法使用（由于超载或停机维护）</li>
+<li>504（网关超时）： 服务器作为网关或代理，但是没有及时从上游服务器收到请求</li>
+<li>505（HTTP 版本不受支持）： 服务器不支持请求中所用的 HTTP 协议版本<h3 id="常用场景"><a href="#常用场景" class="headerlink" title="常用场景"></a>常用场景</h3></li>
+<li>100：客户端在发送POST数据给服务器前，征询服务器情况，看服务器是否处理POST的数据，如果不处理，客户端则不上传POST数据，如果处理，则POST上传数据。常用于POST大数据传输</li>
+<li>101：服务器根据客户端的请求切换协议，主要用于websocket或http2升级</li>
+<li>206：一般用来做断点续传，或者是视频文件等大文件的加载</li>
+<li>301：永久重定向会缓存。新域名替换旧域名，旧的域名不再使用时，用户访问旧域名时用301就重定向到新的域名</li>
+<li>302：临时重定向不会缓存，常用 于未登陆的用户访问用户中心重定向到登录页面</li>
+<li>304：协商缓存，告诉客户端有缓存，直接使用缓存中的数据，返回页面的只有头部信息，是没有内容部分</li>
+<li>400：参数有误，请求无法被服务器识别</li>
+<li>401：未授权，请求要求身份验证。对于需要登录的网页，服务器可能返回此响应</li>
+<li>403：告诉客户端进制访问该站点或者资源，如在外网环境下，然后访问只有内网IP才能访问的时候则返回</li>
+<li>404：服务器找不到资源时，或者服务器拒绝请求又不想说明理由时</li>
+<li>502：错误网关，服务器作为网关或代理，从上游服务器收到无效响应</li>
+<li>503：服务器停机维护时，主动用503响应请求或 nginx 设置限速，超过限速，会返回503</li>
+<li>504：网关超时<h2 id="»-参考-☞"><a href="#»-参考-☞" class="headerlink" title="» 参考 ☞"></a>» 参考 ☞</h2></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7016593221815910408#heading-12">🔥 连八股文都不懂还指望在前端混下去么</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6909239354418266119#comment">说说 HTTP1.0&#x2F;1.1&#x2F;2.0 的区别?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.developers.pub/wiki/1065322/1067962">说说TCP为什么需要三次握手和四次挥手？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.developers.pub/wiki/1065322/1067997#head7">说说HTTP 常见的状态码有哪些，适用场景</a></li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>了解 HTTP HTTPS</p><p><a href="https://czh-1.github.io/2022/03/12/NetWork/http/">https://czh-1.github.io/2022/03/12/NetWork/http/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>浮尘</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-03-12</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-03-20</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/03/12/Optimizing/vue-Optimizing/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Vue项目性能优化</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/03/12/NetWork/cookie-storage/"><span class="level-item">Cookie session localStorage sessionStorage的区别</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
             el: '#valine-thread' ,
             appId: "TeTR7P6MiqeOgTPdmHbWjL1e-gzGzoHsz",
             appKey: "waf2Qu3JCSG1b2jwuI0TVBDf",
@@ -92,7 +143,7 @@
             
             
             requiredFields: [],
-        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#»-HTTP和HTTPS"><span class="level-left"><span class="level-item">1</span><span class="level-item">» HTTP和HTTPS</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#HTTP-和-HTTPS-的区别"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">HTTP 和 HTTPS 的区别</span></span></a></li></ul></li><li><a class="level is-mobile" href="#»-TCP三次握手"><span class="level-left"><span class="level-item">2</span><span class="level-item">» TCP三次握手</span></span></a></li><li><a class="level is-mobile" href="#»-TCP四次挥手"><span class="level-left"><span class="level-item">3</span><span class="level-item">» TCP四次挥手</span></span></a></li><li><a class="level is-mobile" href="#»-从输入URL到页面加载的全过程"><span class="level-left"><span class="level-item">4</span><span class="level-item">» 从输入URL到页面加载的全过程</span></span></a></li><li><a class="level is-mobile" href="#»-参考-☞-🔥-连八股文都不懂还指望在前端混下去么"><span class="level-left"><span class="level-item">5</span><span class="level-item">» 参考  ☞ : 🔥 连八股文都不懂还指望在前端混下去么</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="浮尘的博客" height="28"></a><p class="is-size-7"><span>&copy; 2024 浮尘</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div><div class="BbeiAn-info" style="text-align: center;"><a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow">赣ICP备- 2022002476号-1</a></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#HTTP1-0-x2F-HTTP1-1-x2F-HTTP2-0"><span class="level-left"><span class="level-item">1</span><span class="level-item">HTTP1.0/HTTP1.1/HTTP2.0</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#HTTP1-0"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">HTTP1.0</span></span></a></li><li><a class="level is-mobile" href="#HTTP1-1"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">HTTP1.1</span></span></a></li><li><a class="level is-mobile" href="#HTTP2-0"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">HTTP2.0</span></span></a></li></ul></li><li><a class="level is-mobile" href="#»-HTTP和HTTPS"><span class="level-left"><span class="level-item">2</span><span class="level-item">» HTTP和HTTPS</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#HTTP-和-HTTPS-的区别"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">HTTP 和 HTTPS 的区别</span></span></a></li></ul></li><li><a class="level is-mobile" href="#»-TCP三次握手"><span class="level-left"><span class="level-item">3</span><span class="level-item">» TCP三次握手</span></span></a></li><li><a class="level is-mobile" href="#»-TCP四次挥手"><span class="level-left"><span class="level-item">4</span><span class="level-item">» TCP四次挥手</span></span></a></li><li><a class="level is-mobile" href="#»-从输入URL到页面加载的全过程"><span class="level-left"><span class="level-item">5</span><span class="level-item">» 从输入URL到页面加载的全过程</span></span></a></li><li><a class="level is-mobile" href="#HTTP状态码"><span class="level-left"><span class="level-item">6</span><span class="level-item">HTTP状态码</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1xx"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">1xx</span></span></a></li><li><a class="level is-mobile" href="#2xx"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">2xx</span></span></a></li><li><a class="level is-mobile" href="#3xx"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">3xx</span></span></a></li><li><a class="level is-mobile" href="#4xx"><span class="level-left"><span class="level-item">6.4</span><span class="level-item">4xx</span></span></a></li><li><a class="level is-mobile" href="#5xx"><span class="level-left"><span class="level-item">6.5</span><span class="level-item">5xx</span></span></a></li><li><a class="level is-mobile" href="#常用场景"><span class="level-left"><span class="level-item">6.6</span><span class="level-item">常用场景</span></span></a></li></ul></li><li><a class="level is-mobile" href="#»-参考-☞"><span class="level-left"><span class="level-item">7</span><span class="level-item">» 参考 ☞</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="浮尘的博客" height="28"></a><p class="is-size-7"><span>&copy; 2024 浮尘</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div><div class="BbeiAn-info" style="text-align: center;"><a target="_blank" href="http://www.miitbeian.gov.cn/" rel="nofollow">赣ICP备- 2022002476号-1</a></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
