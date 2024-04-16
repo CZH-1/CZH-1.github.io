@@ -24,7 +24,7 @@ toc: true # 是否显示目录
 ## any
 TypeScript 有一个特殊的类型，any，当你不希望一个值导致类型检查错误的时候，就可以设置为 any 。
 
-当一个值是 any 类型的时候，你可以获取它的任意属性 (也会被转为 any 类型)，或者像函数一样调用它，把它赋值给一个任意类型的值，或者把任意类型的值赋值给它，再或者是其他语法正确的操作，都可以：
+当一个值是 `any` 类型的时候，你可以获取它的任意属性 (也会被转为 `any` 类型)，或者像函数一样调用它，把它赋值给一个任意类型的值，或者把任意类型的值赋值给它，再或者是其他语法正确的操作，都可以：
 ```ts
 let obj: any = { x: 0 };
 // None of the following lines of code will throw compiler errors.
@@ -36,10 +36,33 @@ obj.bar = 100;
 obj = "hello";
 const n: number = obj;
 ```
-当你不想写一个长长的类型代码，仅仅想让 TypeScript 知道某段特定的代码是没有问题的，any 类型是很有用的。
+当你不想写一个长长的类型代码，仅仅想让 `TypeScript` 知道某段特定的代码是没有问题的，`any` 类型是很有用的。
+
+## unknown
+它表示所有类型，在声明的时候，开发人员不确定(或不知道)如何使用该值，或者更具体地说，如何访问其成员(如果有的话)。
+
+它是 `any` 的补充，但它以一种更类型安全的方式起作用。这意味着，直到你真正使用类型为 `unknown` 的值时，它才进行类型检查，但一旦你的代码开始对它进行假设，编译器将开始对其使用进行类型检查。
+```ts
+// any 类型可以复制给其他变量
+let d: any;
+let c: string;
+c=d
+
+// unknown 不能复制给其他变量
+let a: unknown;
+c = a
+// 不能将类型“unknown”分配给类型“string”。
+``` 
+## never
+永远没有返回值
+```ts
+function get():never{
+  throw new Error('报错')
+} 
+```
 
 ## 变量上的类型注解（Type Annotations on Variables）
-当你使用 const、var 或 let 声明一个变量时，你可以选择性的添加一个类型注解，显式指定变量的类型：
+当你使用 `const、var 或 let` 声明一个变量时，你可以选择性的添加一个类型注解，显式指定变量的类型：
 ```ts
 let myName: string = "Alice";
 ```
@@ -225,11 +248,15 @@ const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
 你也可以使用尖括号语法（注意不能在 `.tsx` 文件内使用），是等价的：
 ```ts
 const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
+
+let a = 1
+let b = a as number
+// let b = <number>a
 ```
 > 谨记：因为类型断言会在编译的时候被移除，所以运行时并不会有类型断言的检查，即使类型断言是错误的，也不会有异常或者 `null` 产生。  
 `TypeScript` 仅仅允许类型断言转换为一个更加具体或者更不具体的类型。这个规则可以阻止一些不可能的强制类型转换，比如：
 ```ts
-const x = "hello" as number;
+const x = "hello" as number; 
 // Conversion of type 'string' to type 'number' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
 ```
 有的时候，这条规则会显得非常保守，阻止了你原本有效的类型转换。如果发生了这种事情，你可以使用双重断言，先断言为 `any` （或者是 unknown），然后再断言为期望的类型：
@@ -246,7 +273,6 @@ changingString = "Olá Mundo";
 // is how TypeScript describes it in the type system
 changingString;
 // let changingString: string
-复制代码
 const constantString = "Hello World";
 // Because `constantString` can only represent 1 possible string, it
 // has a literal type representation
@@ -366,7 +392,7 @@ enum Direction {
 ## 不常见的原始类型
 我们提一下在 `JavaScript` 中剩余的一些原始类型。但是我们并不会深入讲解。
 ### bigInt
-ES2020 引入原始类型 BigInt，用于表示非常大的整数：
+ES2020 引入原始类型 `BigInt`，用于表示非常大的整数：
 ```ts
 // Creating a bigint via the BigInt function
 const oneHundred: bigint = BigInt(100);

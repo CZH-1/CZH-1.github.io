@@ -113,7 +113,7 @@ toc: true # 是否显示目录
   
    location /neck {
               root   /usr/local/nginx;
-              try_files $uri $uri/ /index.html;
+              try_files $uri $uri/ /index.html;  // 前端history模式404问题：当用户刷新页面时，Nginx会先检查当前URL是否存在，如果不存在，就会尝试访问index.html，从而可以正常显示页面。
               index  index.html index.htm;
           }
   location /refresh-step/ {
@@ -133,3 +133,4 @@ toc: true # 是否显示目录
 # 完结
 
 [linux服务器安装nginx以及vue项目打包部署(Mac)](https://www.jianshu.com/p/16df34e5d9ff)
+[nginx配置](https://blog.csdn.net/weixin_42329623/article/details/134527035)

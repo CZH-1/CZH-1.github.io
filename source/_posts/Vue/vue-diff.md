@@ -9,7 +9,6 @@ toc: true # 是否显示目录
 ---
 > * 生命周期
 > * vuex
-> * vue-router 3种模式
 > * 虚拟dom
 > * 了解 Vue diff算法
 > * vue 底层代码
@@ -552,17 +551,18 @@ while循环主要处理了以下五种情景：
   * 从旧的 VNode 为 key 值，对应 index 序列为 value 值的哈希表中找到与 newStartVnode 一致 key 的旧的 VNode 节点，再进行patchVnode ，同时将这个真实 dom 移动到 oldStartVnode 对应的真实 dom 的前面
   * 调用 createElm 创建一个新的 dom 节点放到当前 newStartIdx 的位置
 ### 小结
-* 当数据发生改变时，订阅者watcher就会调用patch给真实的DOM打补丁
-* 通过isSameVnode进行判断，相同则调用patchVnode方法
-* patchVnode做了以下操作：
-  * 找到对应的真实dom，称为el
-  * 如果都有都有文本节点且不相等，将el文本节点设置为Vnode的文本节点
-  * 如果oldVnode有子节点而VNode没有，则删除el子节点
-  * 如果oldVnode没有子节点而VNode有，则将VNode的子节点真实化后添加到el
-  * 如果两者都有子节点，则执行updateChildren函数比较子节点
-* updateChildren主要做了以下操作：
-  * 设置新旧VNode的头尾指针
-  * 新旧头尾指针进行比较，循环向中间靠拢，根据情况调用patchVnode进行patch重复流程、调用createElem创建一个新节点，从哈希表寻找 key一致的VNode 节点再分情况操作
+* 当数据发生改变时，订阅者`watcher`就会调用`patch`给真实的`DOM`打补丁
+* 通过`isSameVnode`进行判断，相同则调用`patchVnode`方法
+* `patchVnode`做了以下操作：
+  * 找到对应的真实`dom`，称为`el`
+  * 如果都有都有文本节点且不相等，将`el`文本节点设置为`Vnode`的文本节点
+  * 如果`oldVnode`有子节点而`VNode`没有，则删除`el`子节点
+  * 如果`oldVnode`没有子节点而VNode有，则将`VNode`的子节点真实化后添加到`el`
+  * 如果两者都有子节点，则执行`updateChildren`函数比较子节点
+* `updateChildren`主要做了以下操作：
+  * 设置新旧`VNode`的头尾指针
+  * 新旧头尾指针进行比较，循环向中间靠拢，根据情况调用`patchVnode`进行`patch`重复流程、调用`createElem`创建一个新节点，从哈希表寻找`key` 一致的`VNode`节点再分情况操作
+
 ### 参考
 * [你了解diff算法吗](https://www.developers.pub/wiki/1065322/1065448)
 * [虚拟DOM & diff算法](https://juejin.cn/post/6844903887162310669#comment)

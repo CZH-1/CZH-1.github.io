@@ -111,7 +111,7 @@ toc: true # 是否显示目录
 <style>
     .wrap {
         background: #eee;
-        overflow: hidden; <!-- 生成BFC，计算高度时考虑浮动的元素 -->
+        overflow: hidden; /* 生成BFC，计算高度时考虑浮动的元素 */
         padding: 20px;
         height: 200px;
     }

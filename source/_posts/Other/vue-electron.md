@@ -16,9 +16,9 @@ toc: true # 是否显示目录
 
 项目地址：[Monit](https://github.com/fzf404/Monit)
 
-根据 README.md 文件教程安装依赖并运行
+根据 `README.md` 文件教程安装依赖并运行
 
-由于对 Electron 暂不熟悉，详细代码实现后续详写，本次先对项目安装构建过程中遇到的几个注意事项记录一下。
+由于对 `Electron` 暂不熟悉，详细代码实现后续详写，本次先对项目安装构建过程中遇到的几个注意事项记录一下。
 
 ##  ⚠️注意事项
 ------
@@ -28,7 +28,7 @@ toc: true # 是否显示目录
 修改如下
 1. vue.config.js 中修改构建选项 builderOptions
 
-```bash
+```js
   // 构建选项
   builderOptions: {
     productName: 'Monit', // 应用名
@@ -61,7 +61,7 @@ toc: true # 是否显示目录
 
 2. package.json 中修改构建命令
 
-```bash
+```js
   "scripts": {
   "serve": "vue-cli-service electron:serve",
   "build": "vue-cli-service electron:build --win --ia32",

@@ -32,3 +32,4 @@ toc: true # 是否显示目录
 * [二十张图片彻底讲明白Webpack设计理念，以看懂为目的](https://juejin.cn/post/7170852747749621791)
 * [【webpack系列】从核心概念到上手配置](https://www.developers.pub/wiki/1065322/1215712)
 * [webpack配置完全指南](https://juejin.cn/post/7205527600700571709)
+* [说说webpack的热更新是如何做到的？原理是什么？](https://fe.ecool.fun/topic/af816690-2a3c-4685-a562-991e3040af15?orderBy=updateTime&order=desc&tagId=28)
